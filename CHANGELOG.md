@@ -1,3 +1,5 @@
+## 1.1.8 (unreleased)
+
 ## 1.1.7 (06.11.2026)
 - Update openssl to v0.10.82
 - Update rpassword to v7.5.4
