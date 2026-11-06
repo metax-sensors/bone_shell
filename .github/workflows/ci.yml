@@ -55,6 +55,8 @@ jobs:
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
+      - name: Setup
+        run: rustup default stable
       - name: Build
         run: cargo build --release
       - name: Clean up hierachy
@@ -83,7 +85,11 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: ${{ runner.os }}-cargo-     
+          restore-keys: ${{ runner.os }}-cargo-
+      - name: Setup
+        run: |
+          rustup default stable
+          rustup target add x86_64-pc-windows-gnu
       - name: Build
         run: cargo build --release --target=x86_64-pc-windows-gnu
       - name: Clean up hierachy
